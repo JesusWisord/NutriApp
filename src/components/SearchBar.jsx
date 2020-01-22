@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // import getDataSearch from '../functions/getData';
-import { search } from '../actions/foodCardActions';
+import { search, loading } from '../actions/foodCardActions';
 import traerItems from '../actions/traerItemsFoodCard';
 
 import './styles/SearchBar.css';
@@ -10,9 +10,11 @@ import './styles/SearchBar.css';
 const SearchBar = (props) => {
   const handleKeyDown = (event) => {
     const { key } = event;
-    // eslint-disable-next-line react/prop-types
     if (key === 'Enter') {
       // eslint-disable-next-line react/prop-types
+      if (props.isLoading === false) {
+        props.loading(true);
+      }
       props.traerItems(props.terminos);
     }
   };
@@ -42,7 +44,7 @@ const SearchBar = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.isLoading,
+  isLoading: state.isLoading,
   terminos: state.searchTerms,
   foodItems: state.foodItems,
 });
@@ -50,6 +52,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   search,
   traerItems,
+  loading,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

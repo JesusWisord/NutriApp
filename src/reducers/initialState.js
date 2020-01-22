@@ -3,4 +3,5 @@ export const initialState = {
   isLoading: false,
   searchTerms: '',
   foodItems: [],
+  foodInfo: {},
 };

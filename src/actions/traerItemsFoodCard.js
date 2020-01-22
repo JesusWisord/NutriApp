@@ -12,14 +12,12 @@ const traerItems = (terminos) => async (dispatch) => {
     method: 'POST',
     headers: myHeaders,
     body: RAW,
-    redirect: 'follow',
   };
   const URL = `${BASE_API}${API_KEY}`;
   fetch(URL, requestOptions)
     .then((response) => response.json())
     .then(async (data) => {
       const foodData = await data.foods;
-      console.log(foodData);
       dispatch({
         type: 'TRAER_TODOS',
         payload: foodData,

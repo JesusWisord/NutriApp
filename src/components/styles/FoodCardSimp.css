@@ -1,0 +1,17 @@
+.FoodCardSimp{
+  display: flex;
+  background-color: rgba(255,255,255,.4);
+  margin: 10px 15%;
+  width: 80%;
+  border-radius: 25px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plusIcon{
+  margin-right: 10px;
+  margin-bottom: 2px;
+  height: 25px;
+}
+

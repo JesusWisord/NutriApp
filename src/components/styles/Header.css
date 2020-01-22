@@ -1,0 +1,13 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  background-image: linear-gradient(rgba(115, 227, 231, 1), rgba(115, 227, 231, 0) )
+}
+
+.header__title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+}
