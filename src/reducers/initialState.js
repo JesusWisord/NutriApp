@@ -4,4 +4,6 @@ export const initialState = {
   searchTerms: '',
   foodItems: [],
   foodInfo: {},
+  selectedItems: [],
+  finalReport: [],
 };

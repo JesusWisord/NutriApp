@@ -9,7 +9,7 @@ import traerInfo from '../actions/traerIdFoodInfo';
 
 import icon from '../assets/SVG/circle-left.svg';
 
-import './Styles/FoodPage.css'
+import './Styles/FoodPage.css';
 
 const FoodPage = (props) => {
   const handleClick = () => {

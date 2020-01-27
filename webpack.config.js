@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
-    publicPath: 'dist/',
+    publicPath: '/dist/',
     chunkFilename: 'js/[id].[chunkhash].js',
   },
   module: {
@@ -50,7 +50,7 @@ module.exports = {
       chunkFilename: 'css/[id].css',
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.html'),
+      template: path.resolve(__dirname, './index_prod.html'),
     }),
     new webpack.DllReferencePlugin({
       manifest: ('./modules-manifest.json'),

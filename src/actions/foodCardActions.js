@@ -18,3 +18,18 @@ export const goBack = (payload) => ({
   type: 'BACK',
   payload,
 });
+
+export const setItem = (payload) => ({
+  type: 'SET_ITEM',
+  payload,
+});
+
+export const unsetItem = (payload) => ({
+  type: 'UNSET_ITEM',
+  payload,
+});
+
+export const resetReport = (payload) => ({
+  type: 'RESET_REPORT',
+  payload,
+});

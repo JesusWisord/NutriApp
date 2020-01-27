@@ -9,9 +9,19 @@
   justify-content: space-between;
 }
 
-.plusIcon{
+.FoodCardSimp > h2{
+  width: 90%;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+}
+
+.plusIcon, .checkIcon{
   margin-right: 10px;
   margin-bottom: 2px;
   height: 25px;
+  cursor: pointer;
 }
 
