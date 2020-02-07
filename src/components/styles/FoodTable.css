@@ -7,3 +7,9 @@
 .tableContainer h1{
   margin-left: 10px;
 }
+
+.dietTableContainer{
+  margin: 50px 60px;
+  background-color: white;
+  border-radius: 15px;
+}

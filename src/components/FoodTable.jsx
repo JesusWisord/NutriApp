@@ -29,11 +29,13 @@ const FoodTable = (props) => {
                 );
               }
               return (
-                <tr className="table-info">
-                  <th scope="row">{nutrient.nutrient.name}</th>
-                  <td>{nutrient.amount}</td>
-                  <td>-</td>
-                </tr>
+                // <tr className="table-info">
+                //   <th scope="row">{nutrient.nutrient.name}</th>
+                //   <td>{nutrient.amount}</td>
+                //   <td>-</td>
+                // </tr>
+                <>
+                </>
               );
             })
             }

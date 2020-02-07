@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 
 import FoodCardDiet from '../components/FoodCardDiet';
 import Spinner from '../components/Spinner';
+import DietTableContainer from '../components/DietTableContainer';
 
 import { unsetItem, resetReport } from '../actions/foodCardActions';
 import reporteFinal from '../actions/traerInfoReporteFinal';
 
 const DietPage = (props) => {
   const { selectedItems, finalReport } = props;
+  const nutrientsArray = [];
   if (!(selectedItems.length > 0)) {
     return (<p> ¡¡Error, no se ha seleccionado ningún alimento!! </p>);
   }
@@ -20,17 +22,22 @@ const DietPage = (props) => {
     return (<Spinner />);
   }
 
-  if (finalReport.length < selectedItems.length) {
+  if (finalReport.length !== selectedItems.length) {
     props.resetReport();
   }
 
   return (
     <div className="DietContainer">
-      {finalReport.map((item) => {
-        return (
-          <FoodCardDiet name={item.description} amount="100" />
-        );
-      })}
+      <div className="FoodCard__container">
+        {finalReport.map((item) => {
+          nutrientsArray.push(item.foodNutrients);
+          return (
+            <FoodCardDiet name={item.description} amount="100" />
+          );
+        })}
+      </div>
+      <DietTableContainer nutrientsArray={nutrientsArray} />
+
     </div>
   );
 };
