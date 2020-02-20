@@ -13,7 +13,8 @@ import plusIcon from '../assets/SVG/plus.svg';
 import check from '../assets/SVG/checkmark.svg';
 
 const FoodCardSimp = (props) => {
-  const { name, id, selectedItems } = props;
+
+  const { name, id, selectedItems, type } = props;
   const handleClick = () => {
     if (!selected) {
       props.setItem({ id, amount: 100 });
@@ -33,7 +34,7 @@ const FoodCardSimp = (props) => {
   const selected = selectedArray[0].id === id;
   return (
     <div className="FoodCardSimp">
-      <h2>{name}</h2>
+      <h2>{name} ({type})</h2>
       <div className="icons">
         { selected
           ? (

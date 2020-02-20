@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import FoodCardDiet from '../components/FoodCardDiet';
@@ -8,8 +8,10 @@ import DietTableContainer from '../components/DietTableContainer';
 
 import { unsetItem, resetReport } from '../actions/foodCardActions';
 import reporteFinal from '../actions/traerInfoReporteFinal';
+import dietTableCalcule from '../actions/dietTableCalcule';
 
 const DietPage = (props) => {
+  const [value, setValue] = useState({});
   const { selectedItems, finalReport } = props;
   const nutrientsArray = [];
   if (!(selectedItems.length > 0)) {
@@ -26,15 +28,51 @@ const DietPage = (props) => {
     props.resetReport();
   }
 
+  const handleChange = (e) => {
+    setValue({
+      ...value,
+      [e.target.name]: {
+        id: e.target.name,
+        amount: e.target.value,
+      },
+    });
+  };
+
   return (
     <div className="DietContainer">
       <div className="FoodCard__container">
         {finalReport.map((item) => {
-          nutrientsArray.push(item.foodNutrients);
+          const nutrients = item.foodNutrients;
+          const condition = item.foodClass === 'Branded';
+          const portions = condition ? [{
+            id: 1,
+            amount: item.householdServingFullText,
+            modifier: `(${item.servingSize} ${item.servingSizeUnit})`,
+            gramWeight: item.servingSize,
+          }] : item.foodPortions;
+          const multiplier = Object.values(value).filter((it) => it.id === item.fdcId.toString());
+          if (multiplier.length === 0) {
+            multiplier.push({ amount: 100 });
+          }
+          const nutArrayForPush = dietTableCalcule(nutrients, parseFloat(multiplier[0].amount, 10));
+          nutrientsArray.push(nutArrayForPush);
+          console.log(multiplier[0].amount);
           return (
-            <FoodCardDiet name={item.description} amount="100" />
+            <FoodCardDiet
+              name={item.description}
+              id={item.fdcId}
+              // amount={multiplier[0].amount}
+              value={multiplier[0].amount}
+              onChange={handleChange}
+              type={item.foodClass}
+              portionsArray={portions}
+            />
           );
         })}
+      </div>
+
+      <div className="filterContainer">
+
       </div>
       <DietTableContainer nutrientsArray={nutrientsArray} />
 
@@ -51,6 +89,7 @@ const mapDispatchToProps = {
   unsetItem,
   reporteFinal,
   resetReport,
+  dietTableCalcule,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DietPage);

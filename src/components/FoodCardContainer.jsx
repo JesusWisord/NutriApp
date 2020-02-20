@@ -23,6 +23,7 @@ const FoodCardContainer = (props) => {
           <FoodCardSimp
             name={item.description}
             id={item.fdcId}
+            type={item.dataType}
           />
         ))}
       </ul>

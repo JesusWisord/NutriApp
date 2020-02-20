@@ -6,7 +6,7 @@ const traerItems = (terminos) => async (dispatch) => {
   myHeaders.append('Content-Type', 'application/json');
   const RAW = JSON.stringify({
     generalSearchInput: terminos,
-    includeDataTypeList: ['SR Legacy'],
+    includeDataTypeList: ['SR Legacy', 'Branded'],
   });
   const requestOptions = {
     method: 'POST',

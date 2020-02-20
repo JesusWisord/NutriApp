@@ -9,7 +9,19 @@
 }
 
 .dietTableContainer{
-  margin: 50px 60px;
+  margin: 20px 60px;
   background-color: white;
   border-radius: 15px;
+}
+
+.filterContainer{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  width: 80%;
+  margin: 20px auto;
+  margin-bottom: 0;
+}
+
+.nutrient__hidden{
+  display: none;
 }
