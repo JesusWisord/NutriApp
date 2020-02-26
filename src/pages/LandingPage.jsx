@@ -6,9 +6,14 @@ import './Styles/landing.css';
 const LandingPage = () => (
   <div className="landing">
     <h1>Aplicación Web para valoración dietética</h1>
-    <Link to="/Search">
-      <button type="button" className="button">Buscador USDA</button>
-    </Link>
+    <div className="landing__buttons">
+      <Link to="/USDASearch">
+        <button type="button" className="button">Buscador USDA</button>
+      </Link>
+      <Link to="/DialSearch">
+        <button type="button" className="button">Buscador</button>
+      </Link>
+    </div>
   </div>
 );
 

@@ -44,24 +44,26 @@ const DietPage = (props) => {
         {finalReport.map((item) => {
           const nutrients = item.foodNutrients;
           const condition = item.foodClass === 'Branded';
+
           const portions = condition ? [{
             id: 1,
             amount: item.householdServingFullText,
             modifier: `(${item.servingSize} ${item.servingSizeUnit})`,
             gramWeight: item.servingSize,
           }] : item.foodPortions;
+
           const multiplier = Object.values(value).filter((it) => it.id === item.fdcId.toString());
+
           if (multiplier.length === 0) {
             multiplier.push({ amount: 100 });
           }
+
           const nutArrayForPush = dietTableCalcule(nutrients, parseFloat(multiplier[0].amount, 10));
           nutrientsArray.push(nutArrayForPush);
-          console.log(multiplier[0].amount);
           return (
             <FoodCardDiet
               name={item.description}
               id={item.fdcId}
-              // amount={multiplier[0].amount}
               value={multiplier[0].amount}
               onChange={handleChange}
               type={item.foodClass}

@@ -127,6 +127,24 @@
 .tableContainer h1{
   margin-left: 10px;
 }
+
+.dietTableContainer{
+  margin: 20px 60px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.filterContainer{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  width: 80%;
+  margin: 20px auto;
+  margin-bottom: 0;
+}
+
+.nutrient__hidden{
+  display: none;
+}
 .backButton{
   margin: 15px 5px 5px;
   cursor: pointer;
@@ -167,16 +185,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+
+.FoodCardDiet__name{
+  width: 90%;
+  text-align: center;
 }
 
 .amountFood{
   text-align: center;
 }
 
-.DietContainer{
+.FoodCard__container{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
+}
+
+.FoodCardDiet__portions__container{
+  width: 100%;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  /* grid-gap: 10px; */
+}
+
+.FoodCardDiet__portion{
+  align-content: center;
+  margin-top: 10px;
+}
+
+.FoodCardDiet__portion > input{
+  margin-right: 10px;
 }
 .header{
   display: flex;

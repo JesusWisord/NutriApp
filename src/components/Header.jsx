@@ -8,11 +8,11 @@ import savedItems from '../assets/SVG/folder-open.svg';
 const Header = () => {
   return (
     <header className="header">
-      <Link to="/Search">
+      <Link to="/NutriApp">
         <p className="header__title">NutriApp</p>
       </Link>
       <div className="header__right">
-        <Link to="/Diet">
+        <Link to="/NutriApp/Diet">
           <img src={savedItems} alt="" className="savedItems" />
         </Link>
       </div>

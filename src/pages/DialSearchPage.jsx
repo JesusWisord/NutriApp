@@ -3,23 +3,37 @@ import { connect } from 'react-redux';
 
 import { goBack } from '../actions/foodCardActions';
 
+import getDial from '../functions/DialGet';
+
 import SearchBar from '../components/SearchBar';
 import SearchButton from '../components/SearchButton';
 import FoodCardContainer from '../components/FoodCardContainer';
+import Spinner from '../components/Spinner';
 
 // import getData from '../functions/getData';
 
-const SearchPage = (props) => {
+const DialSearchPage = (props) => {
   if (Object.entries(props.foodInfo).length > 0) {
     props.goBack();
   }
 
+  const data = getDial()
+    .then((d) => {
+      console.log(d);
+      return JSON.parse(d);
+    });
+
+  if (Object.keys(data).length > 0) {
+    return (
+      <>
+        <SearchBar />
+        <SearchButton />
+        <FoodCardContainer />
+      </>
+    );
+  }
   return (
-    <>
-      <SearchBar />
-      <SearchButton />
-      <FoodCardContainer />
-    </>
+    <Spinner />
   );
 };
 
@@ -31,4 +45,4 @@ const mapDispatchToProps = {
   goBack,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(DialSearchPage);

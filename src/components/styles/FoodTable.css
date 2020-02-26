@@ -25,3 +25,11 @@
 .nutrient__hidden{
   display: none;
 }
+
+.quitIcon{
+  margin-top: 10px;
+}
+
+.quitIcon:hover{
+  cursor: pointer;
+}

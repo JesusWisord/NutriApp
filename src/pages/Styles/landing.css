@@ -13,8 +13,15 @@
   background-color: #73E3E7;
   border: none;
   outline: none;
+  margin: 0 auto;
 }
 
 .button:active{
   outline: none;
+}
+
+.landing__buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
 }

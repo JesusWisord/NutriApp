@@ -34,7 +34,7 @@ const FoodCardSimp = (props) => {
   const selected = selectedArray[0].id === id;
   return (
     <div className="FoodCardSimp">
-      <h2>{name} ({type})</h2>
+      <h3>{name} ({type})</h3>
       <div className="icons">
         { selected
           ? (
@@ -53,7 +53,7 @@ const FoodCardSimp = (props) => {
               onClick={() => handleClick()}
             />
           )}
-        <Link to={`/Search/${id}`}>
+        <Link to={`Search/${id}`}>
           <img src={circleRight} alt="" />
         </Link>
       </div>
