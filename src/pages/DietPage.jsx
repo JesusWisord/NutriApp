@@ -2,11 +2,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import './Styles/DietPage.css';
+
 import FoodCardDiet from '../components/FoodCardDiet';
 import Spinner from '../components/Spinner';
 import DietTableContainer from '../components/DietTableContainer';
 
 import { unsetItem, resetReport } from '../actions/foodCardActions';
+import { filterItems } from '../actions/dietTableActions';
 import reporteFinal from '../actions/traerInfoReporteFinal';
 import dietTableCalcule from '../actions/dietTableCalcule';
 
@@ -41,6 +44,7 @@ const DietPage = (props) => {
   return (
     <div className="DietContainer">
       <div className="FoodCard__container">
+        {/* Mapeo de finalReport para obtener nutrientes y amounts */}
         {finalReport.map((item) => {
           const nutrients = item.foodNutrients;
           const condition = item.foodClass === 'Branded';
@@ -56,12 +60,10 @@ const DietPage = (props) => {
           }
           const nutArrayForPush = dietTableCalcule(nutrients, parseFloat(multiplier[0].amount, 10));
           nutrientsArray.push(nutArrayForPush);
-          console.log(multiplier[0].amount);
           return (
             <FoodCardDiet
               name={item.description}
               id={item.fdcId}
-              // amount={multiplier[0].amount}
               value={multiplier[0].amount}
               onChange={handleChange}
               type={item.foodClass}
@@ -72,7 +74,13 @@ const DietPage = (props) => {
       </div>
 
       <div className="filterContainer">
-
+        <button
+          className="button"
+          type="button"
+          onClick={() => props.filterItems()}
+        >
+          Filtar
+        </button>
       </div>
       <DietTableContainer nutrientsArray={nutrientsArray} />
 
@@ -83,6 +91,7 @@ const DietPage = (props) => {
 const mapStateToProps = (state) => ({
   selectedItems: state.selectedItems,
   finalReport: state.finalReport,
+  filtering: state.filtering,
 });
 
 const mapDispatchToProps = {
@@ -90,6 +99,7 @@ const mapDispatchToProps = {
   reporteFinal,
   resetReport,
   dietTableCalcule,
+  filterItems,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DietPage);

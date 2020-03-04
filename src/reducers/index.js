@@ -58,6 +58,11 @@ const reducer = (state, action) => {
         ...state,
         finalReport: [],
       };
+    case 'FILTRAR_ITEMS':
+      return {
+        ...state,
+        filtering: !state.filtering,
+      };
     default:
       return {
         ...state,

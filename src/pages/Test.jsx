@@ -254,10 +254,13 @@ const finalReport = [
 ];
 
 const Test = () => {
-  const handleClick = (nutrient) => {
-    nutrient.checked = !nutrient.checked;
-    Test();
+  const handleClick = (filterAction) => {
+    filterAction = !filterAction;
+    console.log(filterAction);
+    return filterAction;
   };
+
+  let filterAction = false;
   return (
     <>
       <div className="filterContainer__button">
@@ -265,21 +268,11 @@ const Test = () => {
           className="btn btn-primary"
           type="button"
           onClick={() => {
-            console.log('Click');
+            filterAction = handleClick(filterAction);
           }}
         >
         Filter
         </button>
-      </div>
-      <div className="">
-        <div className="filterContainer">
-          {finalReport.map((nutrient) => (
-            <label className="filter__nutrient" htmlFor={`nut-${nutrient.id}`}>
-              <input type="checkbox" defaultChecked onClick={() => handleClick(nutrient)} name={`${nutrient.id}`} id={`nut-${nutrient.id}`} />
-              {nutrient.name}
-            </label>
-          ))}
-        </div>
       </div>
       <div className="dietTableContainer">
         <table className="table table-hover">
@@ -303,6 +296,10 @@ const Test = () => {
                           : nutrient.value.toFixed(2)}
                       </td>
                       <td>{nutrient.unit}</td>
+                      {console.log('fA', filterAction)}
+                      {filterAction
+                        ? <p>Filter</p>
+                        : <p>No-Filter</p>}
                     </tr>
                   );
                 }
