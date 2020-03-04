@@ -6,4 +6,5 @@ export const initialState = {
   foodInfo: {},
   selectedItems: [],
   finalReport: [],
+  filtering: false,
 };
