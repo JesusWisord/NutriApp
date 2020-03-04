@@ -13,7 +13,6 @@ import dietTableCalcule from '../actions/dietTableCalcule';
 const TestPage = (props) => {
   const [value, setValue] = useState({});
 
-<<<<<<< HEAD
   const handleClick = (nutrient) => {
     nutrient.checked = !nutrient.checked;
   };
@@ -95,84 +94,6 @@ const TestPage = (props) => {
       <DietTableContainer nutrientsArray={nutrientsArray} finalReport={fR} />
 
     </div>
-=======
-const Test = () => {
-  const handleClick = (filterAction) => {
-    filterAction = !filterAction;
-    console.log(filterAction);
-    return filterAction;
-  };
-
-  let filterAction = false;
-  return (
-    <>
-      <div className="filterContainer__button">
-        <button
-          className="btn btn-primary"
-          type="button"
-          onClick={() => {
-            filterAction = handleClick(filterAction);
-          }}
-        >
-        Filter
-        </button>
-      </div>
-      <div className="dietTableContainer">
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Nutrient</th>
-              <th scope="col">Value</th>
-              <th scope="col">Units</th>
-            </tr>
-          </thead>
-          <tbody>
-            {finalReport.map((nutrient) => {
-              if (nutrient.value || nutrient.value === 0) {
-                if (nutrient.checked) {
-                  return (
-                    <tr className="nutrient__show">
-                      <th scope="row">{nutrient.name}</th>
-                      <td>
-                        {Number.isInteger(nutrient.value)
-                          ? nutrient.value
-                          : nutrient.value.toFixed(2)}
-                      </td>
-                      <td>{nutrient.unit}</td>
-                      {console.log('fA', filterAction)}
-                      {filterAction
-                        ? <p>Filter</p>
-                        : <p>No-Filter</p>}
-                    </tr>
-                  );
-                }
-                return (
-                  <tr className="nutrient__hidden">
-                    <th scope="row">{nutrient.name}</th>
-                    <td>
-                      {Number.isInteger(nutrient.value)
-                        ? nutrient.value
-                        : nutrient.value.toFixed(2)}
-                    </td>
-                    <td>{nutrient.unit}</td>
-                  </tr>
-                );
-              }
-              return (
-              // <tr className="table-info">
-              //   <th scope="row">{nutrient.name}</th>
-              //   <td> </td>
-              //   <td> </td>
-              // </tr>
-                <>
-                </>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </>
->>>>>>> 544b7e5
   );
 };
 

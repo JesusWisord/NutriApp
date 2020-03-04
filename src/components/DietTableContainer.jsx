@@ -88,17 +88,6 @@ const DietTableContainer = ({ nutrientsArray, filtering }) => {
   }
   return (
     <>
-<<<<<<< HEAD
-      {/* <div className="filterContainer">
-        {finalReport.map((nutrient) => (
-          <label className="filter__nutrient" htmlFor={`nut-${nutrient.id}`}>
-          <input type="checkbox" defaultChecked onClick={() => handleClick(nutrient)} name={`${nutrient.id}`} id={`nut-${nutrient.id}`} />
-            {nutrient.name}
-          </label>
-        ))}
-      </div> */}
-=======
->>>>>>> 544b7e5
       <div className="dietTableContainer">
         <table className="table table-hover">
           <thead>
@@ -113,14 +102,10 @@ const DietTableContainer = ({ nutrientsArray, filtering }) => {
               if (nutrient.value || nutrient.value === 0) {
                 return (
                   <tr
-<<<<<<< HEAD
-                    className={nutrient.checked ? 'nutrient__showed' : 'nutrient__hidden'}
-=======
                     className={nutrientsToHide.includes(nutrient.id)
                       ? 'nutrient__hidden'
                       : 'nutrient__show'}
                     id={nutrient.id}
->>>>>>> 544b7e5
                   >
                     <th scope="row">{nutrient.name}</th>
                     <td>
@@ -129,14 +114,6 @@ const DietTableContainer = ({ nutrientsArray, filtering }) => {
                         : nutrient.value.toFixed(2)}
                     </td>
                     <td>{nutrient.unit}</td>
-<<<<<<< HEAD
-                    <img
-                      src={quitIcon}
-                      alt="quitIcon"
-                      className="quitIcon"
-                      onClick={(e) => handleClick(e)}
-                    />
-=======
                     { filtering
                       ? (
                         <td className="checkbox__show">
@@ -164,7 +141,6 @@ const DietTableContainer = ({ nutrientsArray, filtering }) => {
                           </label>
                         </td>
                       )}
->>>>>>> 544b7e5
                   </tr>
                 );
               }
