@@ -15,7 +15,7 @@
 <Info>
 
 ### 👁 Preview
-<Add a image or video of your feature>
+<Add an image or video of your feature>
 ![]()
 
 ## OPTIONAL
